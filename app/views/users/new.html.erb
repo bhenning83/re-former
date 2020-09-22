@@ -1,10 +1,27 @@
-<form action='/users' method='post' accept-charset='UTF-8'>
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label for='username'>Username:</label>
+<%# <form action='/users' method='post' accept-charset='UTF-8'>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>
+  <%# <label for='username'>Username:</label>
   <input type='text' name='user[username]' id='username'><br>
   <label for='email'>Email:</label>
   <input type='email' name='user[email]' id='email'><br>
   <label for='password'>Password:</label>
   <input type='password' name='user[password]' id='password'><br>
   <input type='submit' value='submit'>
-</form>
+</form> %>
+
+<%# <%= form_tag('/users', method: 'post') do %> 
+  <%# <%= label_tag 'username', 'Username:' %> 
+  <%# <%= text_field_tag 'username' %> 
+  <%# <%= label_tag 'email', 'Email:' %> 
+  <%# <%= email_field_tag 'email' %> 
+  <%# <%= label_tag 'password', 'Password:' %> 
+  <%# <%= password_field_tag 'password' %> 
+  <%# <%= submit_tag 'Submit'%> 
+<%# <% end %> 
+
+<%= form_for @user do |f| %>
+  Username: <%= f.text_field :username, placeholder: 'Mac69' %><br />
+  Email: <%= f.email_field :email, placeholder: 'dennis@paddyspub.com' %><br />
+  Password: <%= f.password_field :password %><br />
+  <%= f.submit%>
+<% end %>
